@@ -1,0 +1,46 @@
+﻿@model ContactUsAssessment.Models.ContactUsModel
+
+@{
+    ViewData["Title"] = "Contact Us Form";
+    Layout = "~/Views/Shared/_ContactLayout.cshtml";
+}
+
+<h1 class="contact-header">ContactUs</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ContactUs" method="post" class="info-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label contact-label"></label>
+                <input asp-for="FirstName" class="form-control contact-input" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label contact-label"></label>
+                <input asp-for="LastName" class="form-control contact-input" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label contact-label"></label>
+                <input asp-for="EmailAddress" class="form-control contact-input" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label contact-label"></label>
+                <textarea asp-for="Message" class="form-control contact-input" ></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="contactus" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
